@@ -6,11 +6,13 @@ const HALF_LIFE_PERIOD = 5730;
 module.exports = function dateSample(str) {
   if (
     !str ||
+    typeof str !== "string" ||
+    str === null ||
     str === NaN ||
-    !typeof str === "string" ||
-    Number(str) > 9000 ||
-    Number(str) === NaN ||
-    Number(str) != "number"
+    Number(str) > MODERN_ACTIVITY ||
+    Number(str) <= 0 ||
+    isNaN(Number(str)) ||
+    Number(str) > 9000
   )
     return false;
 
